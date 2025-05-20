@@ -3,7 +3,6 @@ import tseslint from "typescript-eslint"
 
 import baseConfig from "./configs/base"
 import jsdocConfig from "./configs/jsdoc"
-import jsonConfig from "./configs/json"
 import perfectionistConfig from "./configs/perfectionist"
 import promiseConfig from "./configs/promise"
 import simpleImportSortConfig from "./configs/simple-import-sort"
@@ -14,7 +13,24 @@ import unicornConfig from "./configs/unicorn"
 import unusedImports from "./configs/unused-imports"
 
 const config = tseslint.config(
-  ...jsonConfig,
+  {
+    ignores: [
+      "**/dist/",
+      "**/build/",
+      "**/logs/",
+      "tsconfig.**",
+      "**/eslint.config.js",
+      "**/eslint.config.mjs",
+      "**/tsconfig.json",
+      "**/tsconfig.build.json",
+      "**/jest-e2e.json",
+      "**/package.json",
+      "**/prettier.config.js",
+      "**/nest-cli.json",
+      "**/prettier.config.mjs",
+    ],
+  },
+  // ...jsonConfig,
   ...baseConfig,
   ...typescriptConfig,
   ...jsdocConfig,
@@ -44,7 +60,6 @@ const config = tseslint.config(
       "@typescript-eslint/quotes": "off", // why?
       "sonarjs/function-return-type": "off",
     },
-    ignores: ["**/dist/", "**/build/", "**/logs/", "tsconfig.**", "**/eslint.config.js"],
   }
 )
 

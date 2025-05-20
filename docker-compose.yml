@@ -15,7 +15,7 @@ services:
       - 5432:5432
 
   redis:
-    image: 'bitnami/redis:latest'
+    image: "bitnami/redis:latest"
     restart: unless-stopped
     volumes:
       - redis-data:/data

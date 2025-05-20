@@ -37,4 +37,4 @@ jobs:
           pnpm run setup
 
       - name: Run Turbo tasks concurrently
-        run: turbo run lint prettier type-check --concurrency=4
+        run: turbo run lint prettier type-check test --concurrency=4

@@ -3,28 +3,7 @@ import tseslint from "typescript-eslint"
 
 export default tseslint.config(perfectionistPlugin.configs["recommended-natural"], {
   rules: {
-    "perfectionist/sort-imports": [
-      "error",
-      {
-        type: "natural",
-        order: "asc",
-        ignoreCase: true,
-        matcher: "minimatch",
-        internalPattern: ["~/**", "@/**"],
-        newlinesBetween: "always",
-        groups: [
-          "type",
-          ["builtin", "external"],
-          "internal-type",
-          "internal",
-          ["parent-type", "sibling-type", "index-type"],
-          ["parent", "sibling", "index"],
-          "object",
-          "unknown",
-        ],
-        environment: "node",
-      },
-    ],
+    "perfectionist/sort-imports": "off",
     "perfectionist/sort-exports": "error",
     "perfectionist/sort-named-exports": "error",
     "perfectionist/sort-named-imports": "error",

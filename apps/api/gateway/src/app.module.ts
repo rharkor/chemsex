@@ -11,12 +11,9 @@ import { MICROSERVICES_CLIENTS } from "./constants"
     ClientsModule.register([
       {
         name: MICROSERVICES_CLIENTS.USERS_SERVICE,
-        transport: Transport.REDIS,
+        transport: Transport.NATS,
         options: {
-          host: process.env.REDIS_HOST,
-          port: process.env.REDIS_PORT ? Number(process.env.REDIS_PORT) : 6379,
-          password: process.env.REDIS_PASS,
-          username: process.env.REDIS_USER,
+          servers: ['nats://localhost:4222'],
         },
       },
     ]),

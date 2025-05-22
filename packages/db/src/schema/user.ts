@@ -1,8 +1,16 @@
-import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar } from 'drizzle-orm/pg-core';
+import { relations } from 'drizzle-orm';
+import { crowdfundings } from './crowdfunding';
+import { userDonors } from './userDonator';
 
-export const usersTable = pgTable("users", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar({ length: 255 }).notNull(),
-  age: integer().notNull(),
-  email: varchar({ length: 255 }).notNull().unique(),
+export const users = pgTable('users', {
+  id: varchar('id', { length: 36 }).primaryKey(),
+  email: text('email').notNull(),
+  password: text('password').notNull(),
+  username: text('username').notNull(),
 });
+
+export const userRelations = relations(users, ({ many }) => ({
+  crowdfundings: many(crowdfundings),
+  donations: many(userDonors),
+}));

@@ -1,8 +1,8 @@
 import { db } from "../src/database";
-import { usersTable } from "../src/schema/user";
+import { userTable } from "../src/schema/user";
 
 const main = async () => {
-  const result = await db.select().from(usersTable);
+  const result = await db.select().from(userTable);
   console.log(result);
 };
 

@@ -17,8 +17,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Setup pnpm
+      - name: Setup pnpm with Node.js
         uses: pnpm/action-setup@v4
+        with:
+          standalone: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

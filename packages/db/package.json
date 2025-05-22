@@ -29,5 +29,17 @@
   "devDependencies": {
     "drizzle-kit": "^0.31.1",
     "tsx": "^4.19.4"
-  }
+  },
+  "exports": {
+    ".": {
+        "types": "./dist/database.d.ts",
+        "import": "./dist/database.js",
+        "require": "./dist/database.js"
+    },
+    "./schemas/*": {
+        "types": "./dist/schemas/*.d.ts",
+        "import": "./dist/schemas/*.js",
+        "require": "./dist/schemas/*.js"
+    }
+}
 }

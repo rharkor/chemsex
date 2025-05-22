@@ -28,6 +28,10 @@ jobs:
       - name: Cache Turbo artifacts
         uses: rharkor/caching-for-turbo@v1.8
 
+      - name: setup default env
+        run: |
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres" >> .env
+
       - name: Setup required packages
         run: |
           pnpm install -g turbo

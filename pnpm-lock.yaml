@@ -26,6 +26,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^11.0.1
         version: 11.1.1(@nestjs/common@11.1.1(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.1)
+      '@party-n-play/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@party-n-play/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint
@@ -214,6 +217,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^11.0.1
         version: 11.1.1(@nestjs/common@11.1.1(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.1)
+      '@party-n-play/db':
+        specifier: workspace:*
+        version: link:../../../packages/db
       '@party-n-play/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint

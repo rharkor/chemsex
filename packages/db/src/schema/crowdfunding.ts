@@ -1,7 +1,4 @@
 import { pgTable, varchar, integer, date, text } from 'drizzle-orm/pg-core';
-import { relations } from 'drizzle-orm';
-import { users } from './user';
-import { userDonors } from './userDonator';
 
 export const crowdfundings = pgTable('crowdfundings', {
   id: varchar('id', { length: 36 }).primaryKey(),
@@ -11,10 +8,3 @@ export const crowdfundings = pgTable('crowdfundings', {
   name: text('name').notNull(),
 });
 
-export const crowdfundingRelations = relations(crowdfundings, ({ one, many }) => ({
-  organiser: one(users, {
-    fields: [crowdfundings.userId],
-    references: [users.id],
-  }),
-  donations: many(userDonors),
-}));

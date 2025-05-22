@@ -10,23 +10,20 @@ jobs:
   check:
     name: Check
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Setup pnpm with Node.js
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20
-          cache: "pnpm"
+          standalone: true
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Cache Turbo artifacts
         uses: rharkor/caching-for-turbo@v1.8

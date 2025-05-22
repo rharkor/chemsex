@@ -1,7 +1,7 @@
-import { pgTable, varchar, integer } from 'drizzle-orm/pg-core';
+import { pgTable, varchar, serial, integer } from 'drizzle-orm/pg-core';
 
 export const userDonorTable = pgTable('user_donor', {
-  id: varchar('id', { length: 36 }).primaryKey(),
+  id: serial('id').primaryKey(),
   userId: varchar('user_id', { length: 36 }).notNull(),
   crowndfundingId: varchar('crowndfunding_id', { length: 36 }).notNull(),
   amount: integer('amount').notNull(),

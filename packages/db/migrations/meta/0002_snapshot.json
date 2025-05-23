@@ -1,6 +1,6 @@
 {
-  "id": "b23b0e68-8f7e-4fb1-8299-f097e93d4d40",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "1ab0bfef-0712-4555-b026-2370dcf41cdd",
+  "prevId": "c7448a38-a0de-46fe-b1dd-b472eec1f3f7",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -37,6 +37,39 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_donations": {
+          "name": "total_donations",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},

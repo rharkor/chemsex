@@ -1,7 +1,7 @@
-import { integer, pgTable, serial } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial } from "drizzle-orm/pg-core"
 
-import { crowdfundingTable } from "./crowdfunding";
-import { userTable } from "./user";
+import { crowdfundingTable } from "./crowdfunding"
+import { userTable } from "./user"
 
 export const donationTable = pgTable("donation", {
   id: serial("id").primaryKey(),
@@ -12,4 +12,4 @@ export const donationTable = pgTable("donation", {
     .references(() => crowdfundingTable.id)
     .notNull(),
   amount: integer("amount").notNull(),
-});
+})

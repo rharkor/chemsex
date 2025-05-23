@@ -384,6 +384,9 @@ importers:
       postgres:
         specifier: ^3.4.7
         version: 3.4.7
+      prettier:
+        specifier: '*'
+        version: 3.5.3
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(@swc/core@1.11.24)(jiti@2.4.2)(postcss@8.5.3)(tsx@4.19.4)(typescript@5.8.3)(yaml@2.8.0)

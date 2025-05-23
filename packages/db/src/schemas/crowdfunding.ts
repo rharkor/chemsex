@@ -1,13 +1,6 @@
-import {
-  date,
-  integer,
-  pgTable,
-  serial,
-  text,
-  timestamp,
-} from "drizzle-orm/pg-core";
+import { date, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
 
-import { userTable } from "./user";
+import { userTable } from "./user"
 
 export const crowdfundingTable = pgTable("crowdfunding", {
   id: serial("id").primaryKey(),
@@ -25,7 +18,7 @@ export const crowdfundingTable = pgTable("crowdfunding", {
     .notNull()
     .defaultNow()
     .$onUpdate(() => new Date()),
-});
+})
 
 export const crowdfundingToUserTable = pgTable("crowdfunding_to_user", {
   crowdfundingId: integer("crowdfunding_id")
@@ -34,4 +27,4 @@ export const crowdfundingToUserTable = pgTable("crowdfunding_to_user", {
   userId: integer("user_id")
     .references(() => userTable.id)
     .notNull(),
-});
+})

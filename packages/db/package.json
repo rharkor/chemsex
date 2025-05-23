@@ -34,6 +34,9 @@
     "drizzle-kit": "^0.31.1",
     "tsx": "^4.19.4"
   },
+  "peerDependencies": {
+    "prettier": "*"
+  },
   "exports": {
     ".": {
       "types": "./dist/database.d.ts",

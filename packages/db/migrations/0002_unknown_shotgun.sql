@@ -1,0 +1,1 @@
+ALTER TABLE "crowdfunding" ADD COLUMN "image" text;

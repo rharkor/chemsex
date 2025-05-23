@@ -1,4 +1,4 @@
-import { pgTable, text, serial, uniqueIndex } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, uniqueIndex } from "drizzle-orm/pg-core";
 
 export const userTable = pgTable(
   "user",

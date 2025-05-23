@@ -18,6 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@party-n-play/eslint-config": "workspace:*",
+    "@party-n-play/prettier": "workspace:*",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "postgres": "^3.4.7",

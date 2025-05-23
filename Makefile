@@ -1,6 +1,6 @@
 # Variables
 API_PATH = ./apps/api
-APP_PATH = ./apps/app
+APP_PATH = ./apps/front
 NPM = pnpm
 
 .PHONY: up
@@ -15,9 +15,8 @@ logs:
 
 .PHONY: api
 api: 
-	$(NPM) run setup
-	$(NPM) run --filter $(API_PATH) dev
+	$(NPM) run setup && cd $(API_PATH) && turbo run dev
 .PHONY: app
 app:
 	$(NPM) run setup
-	$(NPM) run --filter $(APP_PATH) dev
+	$(NPM) --filter $(APP_PATH) dev

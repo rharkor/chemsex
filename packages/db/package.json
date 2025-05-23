@@ -12,7 +12,11 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
-    "db:pull": "drizzle-kit pull"
+    "db:pull": "drizzle-kit pull",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
   },
   "keywords": [],
   "author": "",
@@ -32,14 +36,14 @@
   },
   "exports": {
     ".": {
-        "types": "./dist/database.d.ts",
-        "import": "./dist/database.js",
-        "require": "./dist/database.js"
+      "types": "./dist/database.d.ts",
+      "import": "./dist/database.js",
+      "require": "./dist/database.js"
     },
     "./schemas/*": {
-        "types": "./dist/schemas/*.d.ts",
-        "import": "./dist/schemas/*.js",
-        "require": "./dist/schemas/*.js"
+      "types": "./dist/schemas/*.d.ts",
+      "import": "./dist/schemas/*.js",
+      "require": "./dist/schemas/*.js"
     }
-}
+  }
 }

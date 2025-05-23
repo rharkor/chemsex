@@ -159,8 +159,10 @@ export default tseslint.config(
 
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
-      //node safe call
+      // Node safe call
       "@typescript-eslint/no-unsafe-call": "off",
+      // No unsafe argument
+      "@typescript-eslint/no-unsafe-argument": "off",
     },
   },
   {

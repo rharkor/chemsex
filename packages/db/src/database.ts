@@ -4,7 +4,7 @@ import postgres from "postgres"
 
 config()
 
-if (!process.env.DATABASE_URL) {
+if (!process.env.DATABASE_URL && process.env.NODE_ENV !== "test") {
   throw new Error("DATABASE_URL is not set")
 }
 
@@ -16,7 +16,7 @@ const globalForDatabase = globalThis as unknown as {
   conn: postgres.Sql | undefined
 }
 
-const conn = globalForDatabase.conn ?? postgres(process.env.DATABASE_URL)
+const conn = globalForDatabase.conn ?? postgres(process.env.DATABASE_URL!)
 if (process.env.NODE_ENV !== "production") globalForDatabase.conn = conn
 
 // eslint-disable-next-line unicorn/prevent-abbreviations

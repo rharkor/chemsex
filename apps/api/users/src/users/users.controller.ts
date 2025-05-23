@@ -1,4 +1,4 @@
-import { CreateUserDto } from "src/dtos/singupUserDto"
+import { type CreateUserDto } from "src/dtos/singupUserDto"
 
 import { Controller, Post } from "@nestjs/common"
 import { MessagePattern, Payload } from "@nestjs/microservices"

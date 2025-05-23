@@ -16,6 +16,13 @@ import { MICROSERVICES_CLIENTS } from "./constants"
           servers: ["nats://localhost:4222"],
         },
       },
+      {
+        name: MICROSERVICES_CLIENTS.CROWDFUNDING_SERVICE,
+        transport: Transport.NATS,
+        options: {
+          servers: ["nats://localhost:4222"],
+        },
+      },
     ]),
   ],
   controllers: [AppController, UserController],

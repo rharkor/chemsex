@@ -27,7 +27,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(user: User) {
     const { email } = user
 
-    const userData = await db.select().from(userTable).where(eq(userTable.email, email))
+    const userData = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.email, email))
+      .then((response) => response.at(0))
 
     if (!userData) {
       throw new UnauthorizedException("Unauthorized")

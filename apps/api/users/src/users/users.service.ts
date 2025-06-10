@@ -33,22 +33,26 @@ export class UsersService {
   async signin(loginUserDto: LoginUserDto) {
     const { password, email } = loginUserDto
 
-    const user = await db.select().from(userTable).where(eq(userTable.email, email))
+    const user = await db
+      .select()
+      .from(userTable)
+      .where(eq(userTable.email, email))
+      .then((response) => response.at(0))
 
     if (!user) {
       throw new NotFoundException("User not found")
     }
 
-    const match = await bcrypt.compare(password, user[0].password)
+    const match = await bcrypt.compare(password, user.password)
 
     if (!match) {
       throw new UnauthorizedException("Credentials are not good")
     }
 
     const userToken = {
-      id: user[0].id,
-      username: user[0].username,
-      email: user[0].email,
+      id: user.id,
+      username: user.username,
+      email: user.email,
     }
 
     const userStorage = { ...userToken }

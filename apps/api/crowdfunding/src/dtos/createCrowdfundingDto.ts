@@ -1,13 +1,12 @@
 import { z } from "zod"
 
-export const CreateCrowdfundingSchema = z.object({
- goal: z.integer(),
+export const CreateCrowdfundingDto = z.object({
+ goal: z.number(),
  endDate: z.date(), 
  name: z.string().min(3).max(40), 
- description: z.text(), 
- totalDonations: z.integer(),
+ description: z.string(),
  image: z.string().optional(), 
- userId: z.number(),
+ 
 })
 
-export type CreateCrowdfunding = z.infer<typeof CreateCrowdfundingSchema>
+export type CreateCrowdfundingDto = z.infer<typeof CreateCrowdfundingDto>

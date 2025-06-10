@@ -23,8 +23,7 @@ export class UsersController {
 
   @MessagePattern("signin")
   @Post("signin")
-  async signin(@Payload() loginUserDto: LoginUserDto) {
-    console.log("login :", loginUserDto)
-    // return this.userService.signin(loginUserDto)
+  signin(@Payload() loginUserDto: LoginUserDto) {
+    return this.userService.signin(loginUserDto)
   }
 }

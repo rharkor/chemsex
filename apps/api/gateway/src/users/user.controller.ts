@@ -22,7 +22,6 @@ export class UserController {
 
   @Post("signin")
   signin(@Body() body: unknown) {
-    console.log("body :", body)
     return this.usersServiceClient.send("signin", body)
   }
 }

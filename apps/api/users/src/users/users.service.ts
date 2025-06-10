@@ -1,8 +1,10 @@
 import * as bcrypt from "bcrypt"
 import { eq } from "drizzle-orm"
+import { LoginUserDto } from "src/dtos/loginUserDto"
 import { CreateUserDto } from "src/dtos/singupUserDto"
 
-import { Injectable } from "@nestjs/common"
+import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common"
+import { ConfigService } from "@nestjs/config"
 import { JwtService } from "@nestjs/jwt"
 import { RpcException } from "@nestjs/microservices"
 import { db } from "@party-n-play/db"
@@ -10,7 +12,10 @@ import { userTable } from "@party-n-play/db/schemas/user"
 
 @Injectable()
 export class UsersService {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly configService: ConfigService
+  ) {}
   async signup(createUserDto: CreateUserDto): Promise<Record<string, string>> {
     const { email, password, username } = createUserDto
 
@@ -25,21 +30,37 @@ export class UsersService {
     return { data: "User successfully created" }
   }
 
-  async signin(login: string, pass: string): Promise<{ accessToken: string }> {
-    const user = await db.select().from(userTable).where(eq(userTable.username, login))
+  async signin(loginUserDto: LoginUserDto) {
+    const { password, email } = loginUserDto
 
-    const { id, username, email, password } = user[0]
+    const user = await db.select().from(userTable).where(eq(userTable.email, email))
 
-    console.log("user :", user)
-
-    if (password !== pass) {
-      throw new RpcException("Invalid credentials")
+    if (!user) {
+      throw new NotFoundException("User not found")
     }
 
-    const payload = { id, username, email }
+    const match = await bcrypt.compare(password, user[0].password)
+
+    if (!match) {
+      throw new UnauthorizedException("Credentials are not good")
+    }
+
+    const userToken = {
+      id: user[0].id,
+      username: user[0].username,
+      email: user[0].email,
+    }
+
+    const userStorage = { ...userToken }
+
+    const token = this.jwtService.sign(userToken, {
+      expiresIn: "2h",
+      secret: this.configService.get("SECRET_KEY"),
+    })
 
     return {
-      accessToken: await this.jwtService.signAsync(payload),
+      token,
+      userStorage,
     }
   }
 }

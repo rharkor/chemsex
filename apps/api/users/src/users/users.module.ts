@@ -1,4 +1,7 @@
+import { JwtStrategy } from "jwtStrategy"
+
 import { Module } from "@nestjs/common"
+import { ConfigService } from "@nestjs/config"
 import { JwtModule } from "@nestjs/jwt"
 
 import { jwtConstants } from "./constant"
@@ -14,7 +17,6 @@ import { UsersService } from "./users.service"
     }),
   ],
   controllers: [UsersController],
-  providers: [UsersService],
-  exports: [UsersService],
+  providers: [JwtStrategy, UsersService, ConfigService],
 })
 export class UsersModule {}

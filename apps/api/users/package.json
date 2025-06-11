@@ -36,7 +36,7 @@
     "@party-n-play/tsconfig": "workspace:*",
     "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.43.1",
+    "drizzle-orm": "^0.44.0",
     "nats": "^2.29.3",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",

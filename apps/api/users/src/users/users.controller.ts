@@ -1,4 +1,5 @@
-import { CreateUserDto } from "src/dtos/singupUserDto"
+import { type LoginUserDto } from "src/dtos/loginUserDto"
+import { type CreateUserDto } from "src/dtos/singupUserDto"
 
 import { Controller, Post } from "@nestjs/common"
 import { MessagePattern, Payload } from "@nestjs/microservices"
@@ -18,5 +19,11 @@ export class UsersController {
   @Post("signup")
   async signup(@Payload() createUserDto: CreateUserDto) {
     return this.userService.signup(createUserDto)
+  }
+
+  @MessagePattern("signin")
+  @Post("signin")
+  signin(@Payload() loginUserDto: LoginUserDto) {
+    return this.userService.signin(loginUserDto)
   }
 }

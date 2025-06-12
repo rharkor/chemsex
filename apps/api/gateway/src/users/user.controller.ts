@@ -19,4 +19,9 @@ export class UserController {
   signup(@Body() body: unknown) {
     return this.usersServiceClient.send("signup", body)
   }
+
+  @Post("signin")
+  signin(@Body() body: unknown) {
+    return this.usersServiceClient.send("signin", body)
+  }
 }

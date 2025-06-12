@@ -8,7 +8,7 @@ export class UserController {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy
-  ) { }
+  ) {}
 
   @Get()
   getMe() {

@@ -1,0 +1,1 @@
+ALTER TABLE "crowdfunding" ALTER COLUMN "end_date" SET DATA TYPE timestamp;

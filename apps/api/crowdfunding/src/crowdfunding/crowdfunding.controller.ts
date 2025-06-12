@@ -13,17 +13,11 @@ export class CrowdfundingController {
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy,
     private readonly crowdfundingService: CrowdfundingService
-  ) { }
+  ) {}
 
   @MessagePattern("create_campaign")
   @Post("create_campaign")
   createCampaign(@Payload() parameters: CreateCrowdfundingDto) {
-
-    const user = this.usersServiceClient.send('getMe', { token: parameters.ctx.token })
-
-    console.log("User:", user)
-
-
     return this.crowdfundingService.createCrowdfunding(parameters)
   }
 }

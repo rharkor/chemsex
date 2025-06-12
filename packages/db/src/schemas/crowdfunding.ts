@@ -1,4 +1,4 @@
-import { date, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
+import { integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
 
 import { userTable } from "./user"
 
@@ -8,7 +8,7 @@ export const crowdfundingTable = pgTable("crowdfunding", {
   userId: integer("user_id")
     .references(() => userTable.id)
     .notNull(),
-  endDate: date("end_date").notNull(),
+  endDate: timestamp("end_date").notNull(),
   name: text("name").notNull(),
   description: text("description").notNull(),
   totalDonations: integer("total_donations").notNull().default(0),

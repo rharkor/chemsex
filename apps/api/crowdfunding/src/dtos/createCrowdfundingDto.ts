@@ -5,7 +5,7 @@ export const CreateCrowdfundingDto = z.object({
     goal: z.number(),
     endDate: z.date(),
     name: z.string().min(3).max(40),
-    description: z.string(),
+    description: z.string().max(500),
     image: z.string().optional(),
   }),
   ctx: z.object({ token: z.string().nullish() }),

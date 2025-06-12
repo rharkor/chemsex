@@ -1,13 +1,10 @@
-import { MICROSERVICES_CLIENTS } from "src/constants";
+import { MICROSERVICES_CLIENTS } from "src/constants"
 
 import { Module } from "@nestjs/common"
-import { ClientsModule, Transport } from "@nestjs/microservices";
+import { ClientsModule, Transport } from "@nestjs/microservices"
 
-import { UserController } from "../users/user.controller"
-
-import { CrowdfundingController } from "./crowdfunding.controller";
-import { CrowdfundingService } from "./crowdfunding.service";
-
+import { CrowdfundingController } from "./crowdfunding.controller"
+import { CrowdfundingService } from "./crowdfunding.service"
 
 @Module({
   imports: [
@@ -18,9 +15,10 @@ import { CrowdfundingService } from "./crowdfunding.service";
         options: {
           servers: ["nats://localhost:4222"],
         },
-      },]),
+      },
+    ]),
   ],
-  controllers: [CrowdfundingController, UserController],
+  controllers: [CrowdfundingController],
   providers: [CrowdfundingService],
 })
-export class CrowdfundingModule { }
+export class CrowdfundingModule {}

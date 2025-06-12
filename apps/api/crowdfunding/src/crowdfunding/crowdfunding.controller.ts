@@ -1,18 +1,29 @@
 import type { Request } from "express"
+import { MICROSERVICES_CLIENTS } from "src/constants"
 import { CreateCrowdfundingDto } from "src/dtos/createCrowdfundingDto"
 
-import { Controller, Post, Req } from "@nestjs/common"
-import { MessagePattern, Payload } from "@nestjs/microservices"
+import { Controller, Inject, Post } from "@nestjs/common"
+import { ClientProxy, MessagePattern, Payload } from "@nestjs/microservices"
 
 import { CrowdfundingService } from "./crowdfunding.service"
 
 @Controller("crowdfunding")
 export class CrowdfundingController {
-  constructor(private readonly crowdfundingService: CrowdfundingService) {}
+  constructor(
+    @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
+    private readonly usersServiceClient: ClientProxy,
+    private readonly crowdfundingService: CrowdfundingService
+  ) { }
 
   @MessagePattern("create_campaign")
   @Post("create_campaign")
-  createCampaign(@Payload() createCrowdfundingDto: CreateCrowdfundingDto, @Req() request: Request) {
-    return this.crowdfundingService.createCrowdfunding(createCrowdfundingDto, request)
+  createCampaign(@Payload() parameters: CreateCrowdfundingDto) {
+
+    const user = this.usersServiceClient.send('getMe', { token: parameters.ctx.token })
+
+    console.log("User:", user)
+
+
+    return this.crowdfundingService.createCrowdfunding(parameters)
   }
 }

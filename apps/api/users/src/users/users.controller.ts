@@ -1,3 +1,4 @@
+import { type Request } from "express"
 import { type LoginUserDto } from "src/dtos/loginUserDto"
 import { type CreateUserDto } from "src/dtos/singupUserDto"
 
@@ -11,8 +12,8 @@ export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
   @MessagePattern("get_me")
-  getMe() {
-    return { id: "1", name: "John Doe" }
+  async getMe(@Payload() data: { token: string | null | undefined }) {
+    return this.userService.getMe(data)
   }
 
   @MessagePattern("signup")

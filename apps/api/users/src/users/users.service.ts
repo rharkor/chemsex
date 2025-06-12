@@ -67,4 +67,30 @@ export class UsersService {
       userStorage,
     }
   }
+
+  async getMe(data: {
+    token: string | null | undefined
+  }): Promise<Omit<typeof userTable.$inferSelect, "password"> | null | undefined> {
+    if (!data.token) {
+      throw new RpcException("No token provided")
+    }
+
+    const token = data.token.startsWith("Bearer ") ? data.token.slice(7) : null
+
+    if (!token) {
+      throw new RpcException("Invalid token format")
+    }
+
+    const userToken = this.jwtService.decode(token)
+
+    return db
+      .select({
+        id: userTable.id,
+        email: userTable.email,
+        username: userTable.username,
+      })
+      .from(userTable)
+      .where(eq(userTable.id, userToken.id))
+      .then((response) => response.at(0))
+  }
 }

@@ -21,7 +21,6 @@ export class CrowfundingController {
 
   @Get()
   getAll() {
-    console.log("getAll called with body:")
     return this.crowdfundingServiceClient.send("get_all", {})
   }
 }

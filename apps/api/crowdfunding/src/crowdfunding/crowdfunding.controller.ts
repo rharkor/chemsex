@@ -24,6 +24,6 @@ export class CrowdfundingController {
   @Get()
   @MessagePattern("get_all")
   getAll() {
-    return "je suis une chips";
+    return this.crowdfundingService.getAll();
   }
 }

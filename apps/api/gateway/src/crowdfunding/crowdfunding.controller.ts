@@ -1,7 +1,7 @@
 import { Request } from "express"
 import { MICROSERVICES_CLIENTS } from "src/constants"
 
-import { Body, Controller, Get, Inject, Param, Post, Req } from "@nestjs/common"
+import { Body, Controller, Get, Inject, Param, Post, Query, Req } from "@nestjs/common"
 import { ClientProxy } from "@nestjs/microservices"
 
 @Controller("crowdfunding")
@@ -9,7 +9,7 @@ export class CrowfundingController {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.CROWDFUNDING_SERVICE)
     private readonly crowdfundingServiceClient: ClientProxy
-  ) { }
+  ) {}
 
   @Post("create_campaign")
   createCampaign(@Body() body: unknown, @Req() request: Request) {
@@ -20,11 +20,11 @@ export class CrowfundingController {
   }
 
   @Get()
-  getAll() {
-    return this.crowdfundingServiceClient.send("get_all", {})
+  getAll(@Query() query) {
+    return this.crowdfundingServiceClient.send("get_all", query)
   }
 
-  @Get(':id')
+  @Get(":id")
   getById(@Param("id") id: number) {
     return this.crowdfundingServiceClient.send("get_by_id", { id })
   }

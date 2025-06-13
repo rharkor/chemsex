@@ -9,7 +9,7 @@ export class CrowfundingController {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.CROWDFUNDING_SERVICE)
     private readonly crowdfundingServiceClient: ClientProxy
-  ) {}
+  ) { }
 
   @Post("create_campaign")
   createCampaign(@Body() body: unknown, @Req() request: Request) {
@@ -27,5 +27,14 @@ export class CrowfundingController {
   @Get(":id")
   getById(@Param("id") id: number) {
     return this.crowdfundingServiceClient.send("get_by_id", { id })
+  }
+
+  @Post("update_crowdfunding/:id")
+  updateCrowdfunding(@Param("id") id: number, @Body() body: unknown, @Req() request: Request) {
+    return this.crowdfundingServiceClient.send("update_crowdfunding", {
+      id,
+      data: body,
+      ctx: { token: request.headers.authorization },
+    })
   }
 }

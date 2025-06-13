@@ -15,7 +15,7 @@ export class CrowdfundingController {
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy,
     private readonly crowdfundingService: CrowdfundingService
-  ) {}
+  ) { }
 
   @MessagePattern("create_campaign")
   @Post("create_campaign")
@@ -41,5 +41,11 @@ export class CrowdfundingController {
   getById(@Payload("id") id: GetByIdCrowdfundingDto) {
     const parseResult = GetByIdCrowdfundingDto.parse(id)
     return this.crowdfundingService.getById(parseResult)
+  }
+
+  @MessagePattern("update_crowdfunding")
+  @Post("update_crowdfunding/:id")
+  updateCrowdfunding(@Payload() parameters: { id: number, }) {
+    return this.crowdfundingService.updateCrowdfunding(parameters)
   }
 }

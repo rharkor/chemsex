@@ -7,6 +7,7 @@ import { Inject, Injectable, UnauthorizedException } from "@nestjs/common"
 import { ClientProxy } from "@nestjs/microservices"
 import { db } from "@party-n-play/db"
 import { crowdfundingTable } from "@party-n-play/db/schemas/crowdfunding"
+import { off } from "process"
 
 @Injectable()
 export class CrowdfundingService {
@@ -29,7 +30,7 @@ export class CrowdfundingService {
       .returning()
   }
 
-  getAll(filters: { goal?: number; name?: string; userId?: number } = {}) {
+  getAll(filters: { goal?: number; name?: string; page?: number; userId?: number } = {}) {
     const conditions: SQLWrapper[] = []
     if (filters.goal) {
       conditions.push(eq(crowdfundingTable.goal, filters.goal))
@@ -42,7 +43,10 @@ export class CrowdfundingService {
     }
 
     const whereCondition = conditions.length > 0 ? and(...conditions) : undefined
-    return db.select().from(crowdfundingTable).where(whereCondition).limit(20)
+    const page = filters.page ?? 1
+    const offset = (page - 1) * 20
+    console.log(offset)
+    return db.select().from(crowdfundingTable).where(whereCondition).limit(20).offset(offset)
   }
 
   getById(id: number) {

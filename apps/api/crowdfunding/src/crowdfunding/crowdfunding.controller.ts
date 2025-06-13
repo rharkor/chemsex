@@ -6,6 +6,8 @@ import { Controller, Get, Inject, Post } from "@nestjs/common"
 import { ClientProxy, MessagePattern, Payload } from "@nestjs/microservices"
 
 import { CrowdfundingService } from "./crowdfunding.service"
+import { parse } from "path"
+import { GetByIdCrowdfundingDto } from "src/dtos/getByIdCrowdfunding"
 
 @Controller("crowdfunding")
 export class CrowdfundingController {
@@ -29,13 +31,16 @@ export class CrowdfundingController {
       goal: parseResult.goal ?? undefined,
       name: parseResult.name ?? undefined,
       userId: parseResult.userId ?? undefined,
+      page: parseResult.page ?? 1,
     }
     return this.crowdfundingService.getAll(cleaned)
   }
 
   @Get(":id")
   @MessagePattern("get_by_id")
-  getById(@Payload("id") id: number) {
-    return this.crowdfundingService.getById(id)
+  getById(@Payload("id") id: GetByIdCrowdfundingDto) {
+    const parseResult = GetByIdCrowdfundingDto.parse(id)
+    console.log(parseResult)
+    return this.crowdfundingService.getById(parseResult)
   }
 }

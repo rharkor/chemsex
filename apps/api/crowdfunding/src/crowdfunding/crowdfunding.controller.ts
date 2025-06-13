@@ -40,7 +40,6 @@ export class CrowdfundingController {
   @MessagePattern("get_by_id")
   getById(@Payload("id") id: GetByIdCrowdfundingDto) {
     const parseResult = GetByIdCrowdfundingDto.parse(id)
-    console.log(parseResult)
     return this.crowdfundingService.getById(parseResult)
   }
 }

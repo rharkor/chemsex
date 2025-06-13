@@ -39,7 +39,7 @@
     "@party-n-play/tsconfig": "workspace:*",
     "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.44.0",
+    "drizzle-orm": "^0.44.2",
     "nats": "^2.29.3",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",

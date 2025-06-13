@@ -1,3 +1,4 @@
+import { eq } from "drizzle-orm"
 import { firstValueFrom } from "rxjs"
 import { MICROSERVICES_CLIENTS } from "src/constants"
 import { CreateCrowdfundingDto } from "src/dtos/createCrowdfundingDto"
@@ -30,5 +31,9 @@ export class CrowdfundingService {
 
   getAll() {
     return db.select().from(crowdfundingTable).limit(20)
+  }
+
+  getById(id: number) {
+    return db.select().from(crowdfundingTable).where(eq(crowdfundingTable.id, id))
   }
 }

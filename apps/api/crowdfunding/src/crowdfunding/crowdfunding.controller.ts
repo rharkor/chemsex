@@ -26,4 +26,10 @@ export class CrowdfundingController {
   getAll() {
     return this.crowdfundingService.getAll();
   }
+
+  @Get(":id")
+  @MessagePattern("get_by_id")
+  getById(@Payload("id") id: number) {
+    return this.crowdfundingService.getById(id);
+  }
 }

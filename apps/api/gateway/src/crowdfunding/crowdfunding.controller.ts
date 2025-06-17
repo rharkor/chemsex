@@ -1,7 +1,7 @@
 import { Request } from "express"
 import { MICROSERVICES_CLIENTS } from "src/constants"
 
-import { Body, Controller, Get, Inject, Param, Post, Query, Req } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Inject, Param, Post, Query, Req } from "@nestjs/common"
 import { ClientProxy } from "@nestjs/microservices"
 
 @Controller("crowdfunding")
@@ -27,5 +27,10 @@ export class CrowfundingController {
   @Get(":id")
   getById(@Param("id") id: number) {
     return this.crowdfundingServiceClient.send("get_by_id", { id })
+  }
+
+  @Delete(":id")
+  deleteById(@Param("id") id: number) {
+    return this.crowdfundingServiceClient.send("delete_by_id", { id })
   }
 }

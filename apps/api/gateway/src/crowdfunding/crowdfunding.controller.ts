@@ -28,4 +28,13 @@ export class CrowfundingController {
   getById(@Param("id") id: number) {
     return this.crowdfundingServiceClient.send("get_by_id", { id })
   }
+
+  @Post("update_crowdfunding/:id")
+  updateCrowdfunding(@Param("id") id: number, @Body() body: unknown, @Req() request: Request) {
+    return this.crowdfundingServiceClient.send("update_crowdfunding", {
+      id,
+      data: body,
+      ctx: { token: request.headers.authorization },
+    })
+  }
 }

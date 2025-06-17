@@ -9,7 +9,7 @@ export class CrowfundingController {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.CROWDFUNDING_SERVICE)
     private readonly crowdfundingServiceClient: ClientProxy
-  ) { }
+  ) {}
 
   @Post("create_campaign")
   createCampaign(@Body() body: unknown, @Req() request: Request) {

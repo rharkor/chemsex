@@ -9,13 +9,12 @@ import { ClientProxy } from "@nestjs/microservices"
 import { db } from "@party-n-play/db"
 import { crowdfundingTable } from "@party-n-play/db/schemas/crowdfunding"
 
-
 @Injectable()
 export class CrowdfundingService {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy
-  ) { }
+  ) {}
 
   createCrowdfunding = async (parameters: CreateCrowdfundingDto) => {
     const userObservable = this.usersServiceClient.send("get_me", { token: parameters.ctx.token })
@@ -54,7 +53,11 @@ export class CrowdfundingService {
     return db.select().from(crowdfundingTable).where(eq(crowdfundingTable.id, id))
   }
 
-  async updateCrowdfunding(parameters: { id: UpdateCrowdfundingDto["id"]; ctx: UpdateCrowdfundingDto["ctx"]; data: UpdateCrowdfundingDto["data"]; }) {
+  async updateCrowdfunding(parameters: {
+    id: UpdateCrowdfundingDto["id"]
+    ctx: UpdateCrowdfundingDto["ctx"]
+    data: UpdateCrowdfundingDto["data"]
+  }) {
     const userObservable = this.usersServiceClient.send("get_me", { token: parameters.ctx.token })
     const user = await firstValueFrom(userObservable)
     if (!user) {
@@ -66,6 +69,5 @@ export class CrowdfundingService {
       .set({ goal, endDate: new Date(endDate), description, image, name })
       .where(eq(crowdfundingTable.id, parameters.id))
       .returning()
-
   }
 }

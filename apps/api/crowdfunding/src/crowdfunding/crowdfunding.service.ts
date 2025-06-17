@@ -7,7 +7,6 @@ import { Inject, Injectable, UnauthorizedException } from "@nestjs/common"
 import { ClientProxy } from "@nestjs/microservices"
 import { db } from "@party-n-play/db"
 import { crowdfundingTable } from "@party-n-play/db/schemas/crowdfunding"
-import { off } from "process"
 
 @Injectable()
 export class CrowdfundingService {
@@ -51,5 +50,9 @@ export class CrowdfundingService {
 
   getById(id: number) {
     return db.select().from(crowdfundingTable).where(eq(crowdfundingTable.id, id))
+  }
+
+  deleteById(id: number) {
+    return db.delete(crowdfundingTable).where(eq(crowdfundingTable.id, id)).returning()
   }
 }

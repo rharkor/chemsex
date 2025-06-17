@@ -14,7 +14,7 @@ export class CrowdfundingService {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy
-  ) {}
+  ) { }
 
   createCrowdfunding = async (parameters: CreateCrowdfundingDto) => {
     const userObservable = this.usersServiceClient.send("get_me", { token: parameters.ctx.token })
@@ -69,5 +69,8 @@ export class CrowdfundingService {
       .set({ goal, endDate: new Date(endDate), description, image, name })
       .where(eq(crowdfundingTable.id, parameters.id))
       .returning()
+  }
+  deleteById(id: number) {
+    return db.delete(crowdfundingTable).where(eq(crowdfundingTable.id, id)).returning()
   }
 }

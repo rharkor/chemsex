@@ -70,4 +70,8 @@ export class CrowdfundingService {
       .where(eq(crowdfundingTable.id, parameters.id))
       .returning()
   }
+    
+  deleteById(id: number) {
+    return db.delete(crowdfundingTable).where(eq(crowdfundingTable.id, id)).returning()
+  }
 }

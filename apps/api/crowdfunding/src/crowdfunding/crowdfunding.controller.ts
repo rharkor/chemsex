@@ -4,7 +4,7 @@ import { GetByIdCrowdfundingDto } from "src/dtos/getByIdCrowdfunding"
 import { GetCrowdfundingDto } from "src/dtos/getCrowdfunding"
 import { UpdateCrowdfundingDto } from "src/dtos/updateCrowdfundingDto"
 
-import { Controller, Get, Inject, Post } from "@nestjs/common"
+import { Controller, Delete, Get, Inject, Post } from "@nestjs/common"
 import { ClientProxy, MessagePattern, Payload } from "@nestjs/microservices"
 
 import { CrowdfundingService } from "./crowdfunding.service"
@@ -47,5 +47,12 @@ export class CrowdfundingController {
   @Post("update_crowdfunding/:id")
   updateCrowdfunding(@Payload() parameters: UpdateCrowdfundingDto) {
     return this.crowdfundingService.updateCrowdfunding(parameters)
+  }
+
+  @Delete(":id")
+  @MessagePattern("delete_by_id")
+  deleteById(@Payload("id") id: GetByIdCrowdfundingDto) {
+    const parseResult = GetByIdCrowdfundingDto.parse(id)
+    return this.crowdfundingService.deleteById(parseResult)
   }
 }

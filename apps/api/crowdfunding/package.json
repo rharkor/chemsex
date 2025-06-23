@@ -1,5 +1,5 @@
 {
-  "name": "@party-n-play/users",
+  "name": "@party-n-play/crowdfunding",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -26,25 +26,20 @@
     "prettier": "*"
   },
   "dependencies": {
-    "@nestjs/common": "^11.0.1",
-    "@nestjs/config": "^4.0.2",
-    "@nestjs/core": "^11.0.1",
-    "@nestjs/jwt": "^11.0.0",
-    "@nestjs/microservices": "^11.1.1",
-    "@nestjs/passport": "^11.0.5",
-    "@nestjs/platform-express": "^11.0.1",
     "@party-n-play/db": "workspace:*",
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/microservices": "^11.1.1",
+    "@nestjs/platform-express": "^11.0.1",
     "@party-n-play/eslint-config": "workspace:*",
     "@party-n-play/prettier": "workspace:*",
     "@party-n-play/tsconfig": "workspace:*",
-    "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
-    "drizzle-orm": "^0.44.2",
     "nats": "^2.29.3",
-    "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "zod": "^3.25.20"
+    "zod": "^3.25.20",
+    "drizzle-orm": "^0.44.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.0",
@@ -52,7 +47,6 @@
     "@nestjs/testing": "^11.0.1",
     "@swc/cli": "^0.7.0",
     "@swc/core": "^1.10.7",
-    "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",

@@ -14,7 +14,7 @@ export class CrowdfundingService {
   constructor(
     @Inject(MICROSERVICES_CLIENTS.USERS_SERVICE)
     private readonly usersServiceClient: ClientProxy
-  ) { }
+  ) {}
 
   createCrowdfunding = async (parameters: CreateCrowdfundingDto) => {
     const userObservable = this.usersServiceClient.send("get_me", { token: parameters.ctx.token })

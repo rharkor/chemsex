@@ -1,0 +1,12 @@
+### Get me
+GET http://localhost:3000/users
+
+### Get me with token
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+  "username": "username test",
+  "email": "test@mail.com",
+  "password": "passwordtest"
+}

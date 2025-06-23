@@ -1,7 +1,15 @@
 import tseslint from "typescript-eslint"
 
 export default tseslint.config(
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   {
     rules: {
       "@typescript-eslint/array-type": "off",
@@ -148,6 +156,13 @@ export default tseslint.config(
 
       // Sometime we want to be verbose while typing to simplify complexity
       "@typescript-eslint/no-empty-object-type": "off",
+
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      // Node safe call
+      "@typescript-eslint/no-unsafe-call": "off",
+      // No unsafe argument
+      "@typescript-eslint/no-unsafe-argument": "off",
     },
   },
   {

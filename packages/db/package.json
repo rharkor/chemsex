@@ -1,0 +1,52 @@
+{
+  "name": "@party-n-play/db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "tsx debug/index.ts",
+    "build": "tsup src --format esm,cjs && tsc -p tsconfig.build.json",
+    "type-check": "tsc --noEmit",
+    "db:check": "drizzle-kit check",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push",
+    "db:pull": "drizzle-kit pull",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@party-n-play/eslint-config": "workspace:*",
+    "@party-n-play/prettier": "workspace:*",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.44.2",
+    "postgres": "^3.4.7",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.1",
+    "tsx": "^4.19.4"
+  },
+  "peerDependencies": {
+    "prettier": "*"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/database.d.ts",
+      "import": "./dist/database.js",
+      "require": "./dist/database.js"
+    },
+    "./schemas/*": {
+      "types": "./dist/schemas/*.d.ts",
+      "import": "./dist/schemas/*.js",
+      "require": "./dist/schemas/*.js"
+    }
+  }
+}

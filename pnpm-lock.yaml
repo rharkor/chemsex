@@ -40,7 +40,7 @@ importers:
         version: link:../../packages/tsconfig
       dotenv:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.6.0
       nats:
         specifier: ^2.29.3
         version: 2.29.3
@@ -137,7 +137,7 @@ importers:
         version: link:../../../packages/tsconfig
       dotenv:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.6.0
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.2(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -237,7 +237,7 @@ importers:
         version: link:../../../packages/tsconfig
       dotenv:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.6.0
       nats:
         specifier: ^2.29.3
         version: 2.29.3
@@ -346,7 +346,7 @@ importers:
         version: 6.0.0
       dotenv:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.6.0
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.2(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -492,7 +492,7 @@ importers:
         version: link:../prettier
       dotenv:
         specifier: ^16.5.0
-        version: 16.5.0
+        version: 16.6.0
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.2(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -3628,8 +3628,8 @@ packages:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
-  dotenv@16.5.0:
-    resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
+  dotenv@16.6.0:
+    resolution: {integrity: sha512-Omf1L8paOy2VJhILjyhrhqwLIdstqm1BvcDPKg4NGAlkwEu9ODyrFbvk8UymUOMCT+HXo31jg1lArIrVAAhuGA==}
     engines: {node: '>=12'}
 
   drizzle-kit@0.31.3:
@@ -9429,11 +9429,11 @@ snapshots:
 
   dotenv-expand@12.0.1:
     dependencies:
-      dotenv: 16.5.0
+      dotenv: 16.6.0
 
   dotenv@16.4.7: {}
 
-  dotenv@16.5.0: {}
+  dotenv@16.6.0: {}
 
   drizzle-kit@0.31.3:
     dependencies:

@@ -34,7 +34,7 @@
     "@party-n-play/eslint-config": "workspace:*",
     "@party-n-play/prettier": "workspace:*",
     "@party-n-play/tsconfig": "workspace:*",
-    "dotenv": "^16.5.0",
+    "dotenv": "^17.0.0",
     "nats": "^2.29.3",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",

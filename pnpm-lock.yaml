@@ -155,7 +155,7 @@ importers:
         version: 7.8.2
       zod:
         specifier: ^3.25.20
-        version: 3.25.69
+        version: 3.25.70
     devDependencies:
       '@nestjs/cli':
         specifier: ^11.0.0
@@ -367,7 +367,7 @@ importers:
         version: 7.8.2
       zod:
         specifier: ^3.25.20
-        version: 3.25.69
+        version: 3.25.70
     devDependencies:
       '@nestjs/cli':
         specifier: ^11.0.0
@@ -6580,8 +6580,8 @@ packages:
     resolution: {integrity: sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==}
     engines: {node: '>=18'}
 
-  zod@3.25.69:
-    resolution: {integrity: sha512-cjUx+boz8dfYGssYKLGNTF5VUF6NETpcZCDTN3knhUUXQTAAvErzRhV3pgeCZm2YsL4HOwtEHPonlsshPu2I0A==}
+  zod@3.25.70:
+    resolution: {integrity: sha512-2WWzL2X2GpPU6as2xK1HFb6U5BZdJMdpB5Qtlan4a1KLYcZ6Gvox+mqZpxOd66sfe5AP3pEWpd2BC3f0yLH/nQ==}
 
 snapshots:
 
@@ -13006,4 +13006,4 @@ snapshots:
 
   yoctocolors-cjs@2.1.2: {}
 
-  zod@3.25.69: {}
+  zod@3.25.70: {}

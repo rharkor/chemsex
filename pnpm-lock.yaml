@@ -40,7 +40,7 @@ importers:
         version: link:../../packages/tsconfig
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       nats:
         specifier: ^2.29.3
         version: 2.29.3
@@ -137,7 +137,7 @@ importers:
         version: link:../../../packages/tsconfig
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.3(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -237,7 +237,7 @@ importers:
         version: link:../../../packages/tsconfig
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       nats:
         specifier: ^2.29.3
         version: 2.29.3
@@ -346,7 +346,7 @@ importers:
         version: 6.0.0
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.3(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -492,7 +492,7 @@ importers:
         version: link:../prettier
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.3(@types/pg@8.15.2)(pg@8.16.0)(postgres@3.4.7)
@@ -3470,12 +3470,8 @@ packages:
     resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
     engines: {node: '>=12'}
 
-  dotenv@16.6.1:
-    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
-    engines: {node: '>=12'}
-
-  dotenv@17.2.0:
-    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
+  dotenv@17.2.1:
+    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
     engines: {node: '>=12'}
 
   drizzle-kit@0.31.4:
@@ -9127,13 +9123,11 @@ snapshots:
 
   dotenv-expand@12.0.1:
     dependencies:
-      dotenv: 16.6.1
+      dotenv: 16.4.7
 
   dotenv@16.4.7: {}
 
-  dotenv@16.6.1: {}
-
-  dotenv@17.2.0: {}
+  dotenv@17.2.1: {}
 
   drizzle-kit@0.31.4:
     dependencies:

@@ -27,7 +27,7 @@
     "@party-n-play/tsconfig": "workspace:*",
     "@stylistic/eslint-plugin": "^5.0.0",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
-    "@types/eslint__js": "^8.42.3",
+    "@types/eslint__js": "^9.0.0",
     "@types/node": "^22.7.2",
     "@typescript-eslint/utils": "^8.31.1",
     "eslint": "9.32.0",
